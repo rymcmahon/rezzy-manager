@@ -1,0 +1,23 @@
+
+<%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Find a Table" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %><br />
+
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %><br />
+
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %><br />
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
