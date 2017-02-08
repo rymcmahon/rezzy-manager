@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui
+
+
+  $( function() {
+    $( "#datepicker" ).datepicker( { beforeShowDay: $.datepicker.noWeekends } );
+  } );

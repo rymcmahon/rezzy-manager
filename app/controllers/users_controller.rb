@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.reservations.build
+    @user.tables.build
   end
 
   def edit
@@ -43,7 +45,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone,
+    reservations_attributes: [:id, :date, :starts_at, :ends_at, :table_id, :destroy],
+    tables_attributes: [:id, :seating_capacity, :destroy])
   end
 
 end

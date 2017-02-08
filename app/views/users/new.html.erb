@@ -17,6 +17,20 @@
   <%= f.label :phone %><br />
   <%= f.text_field :phone %><br />
 
+  <%= f.fields_for :reservations do |reservation_form| %>
+    <%= reservation_form.label :date %><br />
+    <%= reservation_form.text_field :date, id:"datepicker" %><br />
+
+    <%= reservation_form.label :starts_at, prompt: {hour: true}, time_separator: ':' %><br />
+    <%= reservation_form.time_select :starts_at, {:minute_step => 15, :ampm => true} %><br />
+
+    <%= reservation_form.label :ends_at %><br />
+    <%= reservation_form.time_select :ends_at %><br />
+
+    <%= reservation_form.collection_select :table_id, Table.all, :id, :seating_capacity %>
+
+  <% end %>
+
   <p>
     <%= f.submit %>
   </p>
