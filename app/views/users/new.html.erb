@@ -1,37 +1,60 @@
+<div class="container">
 
-<%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Find a Table" %>
+<!-- <%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
+    <%= text_field_tag :guests, params[:guests], placeholder: "Find a Table" %>
     <%= submit_tag "Search", :name => nil %>
-<% end %>
+<% end %> -->
 
 <%= form_for @user do |f| %>
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name %><br />
+<%= f.fields_for :reservations do |reservation_form| %>
+<div class="row reservation-row">
+  <div class="col-md-2 form-group">
+    <%= reservation_form.label :seating_capacity, "Number in Party"%> <br />
+    <%= reservation_form.collection_select :table_id, Table.all, :id, :seating_capacity, {:prompt => "Select Guests"}, class:"form-control" %> <br />
 
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name %><br />
+  </div>
+  <div class="col-md-2 form-group">
+  <%= reservation_form.label :date %><br />
+  <%= reservation_form.text_field :date, id:"datepicker", class:"form-control" %><br />
+  </div>
+  <div class="col-md-2 form-group">
+  <%= reservation_form.label :starts_at %><br />
+  <%= reservation_form.text_field :starts_at, id:"timepicker", class:"form-control" %><br />
+  </div>
+</div>
 
-  <%= f.label :email %><br />
-  <%= f.text_field :email %><br />
+<!-- <%= reservation_form.label :ends_at %><br /> -->
+<!-- <%= reservation_form.time_select :ends_at %><br /> -->
 
-  <%= f.label :phone %><br />
-  <%= f.text_field :phone %><br />
 
-  <%= f.fields_for :reservations do |reservation_form| %>
-    <%= reservation_form.label :date %><br />
-    <%= reservation_form.text_field :date, id:"datepicker" %><br />
+<% end %>
+<div class="row user-row">
+  <div class="col-md-3 form-group">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, class:"form-control" %><br />
+  </div>
+  <div class="col-md-3 form-group">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, class:"form-control" %><br />
+  </div>
+</div>
+<div class="row user-row">
+  <div class="col-md-3 form-group">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, class:"form-control" %><br />
 
-    <%= reservation_form.label :starts_at, prompt: {hour: true}, time_separator: ':' %><br />
-    <%= reservation_form.time_select :starts_at, {:minute_step => 15, :ampm => true} %><br />
+  </div>
+  <div class="col-md-3 form-group">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, class:"form-control" %><br />
+  </div>
+</div>
 
-    <%= reservation_form.label :ends_at %><br />
-    <%= reservation_form.time_select :ends_at %><br />
 
-    <%= reservation_form.collection_select :table_id, Table.all, :id, :seating_capacity %>
-
-  <% end %>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Book Reservation", class:'btn btn-md btn-success' %>
   </p>
 <% end %>
+
+</div>

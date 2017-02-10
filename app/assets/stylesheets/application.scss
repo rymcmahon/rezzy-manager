@@ -13,4 +13,17 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require jquery.timepicker.css
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+ .reservation-row {
+   margin-top: 40px;
+ }
+
+ .user-row {
+
+ }

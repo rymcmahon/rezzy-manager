@@ -6,8 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-20.times do
+# 20.times do
+#   Table.create!(
+#     seating_capacity: rand(2..8)
+#   )
+# end
+
+6.times do
   Table.create!(
-    seating_capacity: rand(2..8)
+    seating_capacity: 4
+  )
+end
+
+6.times do
+  Table.create!(
+    seating_capacity: 2
+  )
+end
+
+2.times do
+  Table.create!(
+    seating_capacity: 6
   )
 end

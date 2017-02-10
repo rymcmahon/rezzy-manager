@@ -1,8 +1,8 @@
 class TablesController < ApplicationController
   def index
     @tables = Table.all
-    if params[:search]
-      @tables = Table.search(params[:search])
+    if params[:guests]
+      @tables = Table.search(params[:guests])
     end
   end
 end

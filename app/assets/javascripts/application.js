@@ -15,8 +15,25 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery-ui
+//= require jquery.timepicker.js
+//= require bootstrap-sprockets
 
 
   $( function() {
-    $( "#datepicker" ).datepicker( { beforeShowDay: $.datepicker.noWeekends } );
+    $( "#datepicker" ).datepicker({
+      dateFormat: 'yy-mm-dd',
+        beforeShowDay: function(date) {
+          var day = date.getDay();
+          return [(day != 1 && day != 0)];
+        }
+    });
   } );
+
+  $( function() {
+    $('#timepicker').timepicker({
+      minTime: '5:00pm',
+      maxTime: '8:00pm',
+      step: '15'
+    })
+  } );
+
