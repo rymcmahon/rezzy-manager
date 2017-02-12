@@ -1,9 +1,9 @@
 <div class="container">
 
-<!-- <%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
+<%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
     <%= text_field_tag :guests, params[:guests], placeholder: "Find a Table" %>
     <%= submit_tag "Search", :name => nil %>
-<% end %> -->
+<% end %>
 
 <%= form_for @user do |f| %>
 <%= f.fields_for :reservations do |reservation_form| %>
