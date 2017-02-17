@@ -19,15 +19,15 @@
 //= require bootstrap-sprockets
 
 
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      dateFormat: 'yy-mm-dd',
-        beforeShowDay: function(date) {
-          var day = date.getDay();
-          return [(day != 1 && day != 0)];
-        }
-    });
-  } );
+  // $( function() {
+  //   $( "#datepicker" ).datepicker({
+  //     dateFormat: 'yy-mm-dd',
+  //       beforeShowDay: function(date) {
+  //         var day = date.getDay();
+  //         return [(day != 1 && day != 0)];
+  //       }
+  //   });
+  // } );
 
   $( function() {
     $('#timepicker').timepicker({

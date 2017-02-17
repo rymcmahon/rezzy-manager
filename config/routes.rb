@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :users
   resources :reservations
   resources :tables
+  get '/tables/search' => 'tables#search'
 end

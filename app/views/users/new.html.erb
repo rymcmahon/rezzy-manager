@@ -1,7 +1,9 @@
 <div class="container">
 
 <%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
-    <%= text_field_tag :guests, params[:guests], placeholder: "Find a Table" %>
+    <%= text_field_tag :guests, params[:guests], placeholder: "Number of Guests" %>
+    <%= text_field_tag :day, params[:day], id:"datepicker", placeholder: "Select Day" %>
+    <%= text_field_tag :time, params[:time], id:"timepicker", placeholder: "Select Time" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
@@ -24,7 +26,7 @@
 </div>
 
 <!-- <%= reservation_form.label :ends_at %><br /> -->
-<!-- <%= reservation_form.time_select :ends_at %><br /> -->
+<%= reservation_form.hidden_field :ends_at, :value => @reservation %><br />
 
 
 <% end %>
