@@ -10,11 +10,19 @@ class Table < ApplicationRecord
   #   Table.joins(:reservations).where('cast(seating_capacity as text) >= ? AND reservations.date = ?', guests, day).where.not('reservations.date <= ? AND reservations.ends_at >= ?', day, day)
   # end
 
-  def self.search(guests, day, time)
-    Reservation.joins(:table).where('cast(seating_capacity as text) >= ? AND reservations.date = ?', guests, day)
-  end
+  # def self.search(guests, day, time)
+  #   Reservation.joins(:tables).where('cast(seating_capacity as text) >= ? AND reservations.date != ?', guests, day)
+  # end
 
   # def self.search(guests)
   #   where('cast(seating_capacity as text) >= ?', guests)
   # end
+
+  # def self.search(guests, day, time)
+  #   Table.where('cast(seating_capacity as text) >= ?', guests)
+  # end
+
+  def self.search(guests, day, time)
+    Table.where('cast(seating_capacity as text) >= ? AND reservations.starts_at ', guests)
+  end
 end

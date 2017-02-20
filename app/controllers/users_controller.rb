@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.reservations.update(ends_at: @user.reservations.last.date.advance(hours: 1))
+      @user.reservations.update(ends_at: @user.reservations.last.starts_at.advance(hours: 1))
       redirect_to '/'
     else
       render 'new'
