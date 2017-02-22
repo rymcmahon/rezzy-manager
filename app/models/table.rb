@@ -2,27 +2,23 @@ class Table < ApplicationRecord
   has_many :reservations
   has_many :users, through: :reservations
 
-  # def self.search(guests, day, time)
-  #   Table.joins(:reservations).where('cast(seating_capacity as text) >= ? AND reservations.date != ?', guests, day).where.not('starts_at >= ? AND ends_at <= ?', time, time)
+  # def self.free_on(day, time)
+  #   reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
+  #   where('id NOT IN (?)', reserved_table_ids)
+  # end
+  #
+  # def self.reserved_on(day, time)
+  #   reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
+  #   where(:id => reserved_table_ids)
   # end
 
-  # def self.search(guests, day, time)
-  #   Table.joins(:reservations).where('cast(seating_capacity as text) >= ? AND reservations.date = ?', guests, day).where.not('reservations.date <= ? AND reservations.ends_at >= ?', day, day)
-  # end
+  def self.free_on(day)
+    reserved_table_ids = Reservation.on(day).pluck('DISTINCT table_id')
+    where('id NOT IN (?)', reserved_table_ids)
+  end
 
-  # def self.search(guests, day, time)
-  #   Reservation.joins(:tables).where('cast(seating_capacity as text) >= ? AND reservations.date != ?', guests, day)
-  # end
-
-  # def self.search(guests)
-  #   where('cast(seating_capacity as text) >= ?', guests)
-  # end
-
-  # def self.search(guests, day, time)
-  #   Table.where('cast(seating_capacity as text) >= ?', guests)
-  # end
-
-  def self.search(guests, day, time)
-    Table.where('cast(seating_capacity as text) >= ? AND reservations.starts_at ', guests)
+  def self.reserved_on(day)
+    reserved_table_ids = Reservation.on(day).pluck('DISTINCT table_id')
+    where(:id => reserved_table_ids)
   end
 end

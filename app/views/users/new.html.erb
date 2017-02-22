@@ -1,13 +1,13 @@
 <div class="container">
 
 <%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
-    <%= text_field_tag :guests, params[:guests], placeholder: "Number of Guests" %>
+    <!-- <%= text_field_tag :guests, params[:guests], placeholder: "Number of Guests" %> -->
     <%= text_field_tag :day, params[:day], class:"datepicker", placeholder: "Select Day" %>
-    <%= text_field_tag :time, params[:time], class:"timepicker", placeholder: "Select Time" %>
+    <!-- <%= text_field_tag :time, params[:time], class:"timepicker", placeholder: "Select Time" %> -->
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<%= form_for @user do |f| %>
+<!-- <%= form_for @user do |f| %>
 <%= f.fields_for :reservations do |reservation_form| %>
 <div class="row reservation-row">
   <div class="col-md-2 form-group">
@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<!-- <%= reservation_form.label :ends_at %><br /> -->
+<%= reservation_form.label :ends_at %><br />
 <%= reservation_form.hidden_field :ends_at, :value => @reservation %><br />
 
 
@@ -57,6 +57,6 @@
   <p>
     <%= f.submit "Book Reservation", class:'btn btn-md btn-success' %>
   </p>
-<% end %>
+<% end %> -->
 
 </div>

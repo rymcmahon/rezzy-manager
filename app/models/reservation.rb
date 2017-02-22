@@ -2,7 +2,6 @@ class Reservation < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :table, optional: true
 
-  def self.just_date(date)
-    date.to_date
-  end
+  # scope :on, lambda {|day, time| where('date = ? AND starts_at > ? AND ends_at < ?', day, time, time) }
+  scope :on, lambda {|day| where('date = ?', day) }
 end

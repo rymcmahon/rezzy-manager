@@ -1,12 +1,9 @@
 class TablesController < ApplicationController
   def index
     @tables = Table.all
-    if params[:guests]
-      @tables = Table.search(params[:guests], params[:day], params[:time])
-    end
-  end
-
-  def search
-    @tables = Table.where('cast(seating_capacity as text) >= ?', guests)
+    # @reserved_tables = Table.reserved_on(params[:day], params[:time])
+    # @open_tables = Table.free_on(params[:day], params[:time])
+    @reserved_tables = Table.reserved_on(params[:day])
+    @open_tables = Table.free_on(params[:day])
   end
 end
