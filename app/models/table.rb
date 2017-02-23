@@ -12,13 +12,22 @@ class Table < ApplicationRecord
   #   where(:id => reserved_table_ids)
   # end
 
+  # def self.free_on(day, time)
+  #   reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
+  #   if reserved_table_ids
+  #   where.not(id: reserved_table_ids)
+  # else
+  #   all
+  # end
+  # end
+
   def self.free_on(day, time)
-    reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
-    where('id NOT IN (?)', reserved_table_ids)
-  end
+  reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
+  reserved_table_ids ? where.not(id: reserved_table_ids) : all
+end
 
   def self.reserved_on(day, time)
     reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
-    where(:id => reserved_table_ids)
+    where(id: reserved_table_ids)
   end
 end
