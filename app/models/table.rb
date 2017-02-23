@@ -20,11 +20,14 @@ class Table < ApplicationRecord
   #   all
   # end
   # end
+  # def self.number_of_guests(guests)
+  #   where('cast(seating_capacity as text) >=', guests)
+  # end
 
   def self.free_on(day, time)
-  reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
-  reserved_table_ids ? where.not(id: reserved_table_ids) : all
-end
+    reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
+    reserved_table_ids ? where.not(id: reserved_table_ids) : all
+  end
 
   def self.reserved_on(day, time)
     reserved_table_ids = Reservation.on(day, time).pluck('DISTINCT table_id')
