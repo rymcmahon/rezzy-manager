@@ -27,7 +27,17 @@ class Table < ApplicationRecord
 
   def self.free_on(guests, day, time)
     reserved_table_ids = Reservation.on(day, time).number_of_guests(guests).pluck('DISTINCT table_id')
-    reserved_table_ids ? where.not(id: reserved_table_ids) : all
+    # reserved_table_ids ? where.not(id: reserved_table_ids) : all
+    if reserved_table_ids.empty?
+      Table.where('seating_capacity >= ?', guests).pluck('DISTINCT id')
+    else
+      Table.where('id NOT IN (?) AND seating_capacity >= ?', reserved_table_ids, guests)
+    end
+
+    # reserved_table_ids ? where('id != ? AND seating_capacity < ?', reserved_table_ids, guests) : all
+    # open_table_ids ? where.not(id: open_table_ids) : Table.where('seating_capacity >= ?', guests)
+    # open_table_ids ? where.not(id: open_table_ids) : all
+
   end
 
   def self.reserved_on(guests, day, time)
