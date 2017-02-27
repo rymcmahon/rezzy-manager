@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = User.new
     @user.reservations.build
     @user.tables.build
+
+    @guests = params[:guests]
+    @day = params[:day]
+    @time = params[:time]
   end
 
   def edit

@@ -6,8 +6,49 @@
     <%= text_field_tag :time, params[:time], class:"timepicker", placeholder: "Select Time" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
-
 <%= form_for @user do |f| %>
+<%= f.fields_for :reservations do |reservation_form| %>
+  <div class="row reservation-row">
+    <div class="col-md-2 form-group">
+      <%= reservation_form.hidden_field 'seating_capacity', :value => params[:guests]%>
+    </div>
+    <div class="col-md-2 form-group">
+    <%= reservation_form.label :date %><br />
+    <%= reservation_form.text_field :date, class:"datepicker form-control" %><br />
+    </div>
+    <div class="col-md-2 form-group">
+    <%= reservation_form.label :starts_at %><br />
+    <%= reservation_form.text_field :starts_at, class:"timepicker form-control" %><br />
+    </div>
+  </div>
+<% end %>
+<div class="row user-row">
+  <div class="col-md-3 form-group">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, class:"form-control" %><br />
+  </div>
+  <div class="col-md-3 form-group">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, class:"form-control" %><br />
+  </div>
+</div>
+<div class="row user-row">
+  <div class="col-md-3 form-group">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, class:"form-control" %><br />
+
+  </div>
+  <div class="col-md-3 form-group">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, class:"form-control" %><br />
+  </div>
+</div>
+  <p>
+    <%= f.submit "Book Reservation", class:'btn btn-md btn-success' %>
+  </p>
+<% end %>
+
+<!-- <%= form_for @user do |f| %>
 <%= f.fields_for :reservations do |reservation_form| %>
 <div class="row reservation-row">
   <div class="col-md-2 form-group">
@@ -25,8 +66,8 @@
   </div>
 </div>
 
-<!-- <%= reservation_form.label :ends_at %><br />
-<%= reservation_form.hidden_field :ends_at, :value => @reservation %><br /> -->
+<%= reservation_form.label :ends_at %><br />
+<%= reservation_form.hidden_field :ends_at, :value => @reservation %><br />
 
 
 <% end %>
@@ -57,6 +98,6 @@
   <p>
     <%= f.submit "Book Reservation", class:'btn btn-md btn-success' %>
   </p>
-<% end %>
+<% end %> -->
 
 </div>
