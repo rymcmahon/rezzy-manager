@@ -4,5 +4,7 @@
 
 <%= form_tag(tables_path, :method => "post", id: "table-search-form") do %>
     <%= hidden_field_tag 'seating_capacity', :value => params[:guests]%>
+    <%= hidden_field_tag 'date', :value => @day %>
+    <%= hidden_field_tag 'starts_at', :value => @time %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
