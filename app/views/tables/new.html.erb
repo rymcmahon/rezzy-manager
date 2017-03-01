@@ -1,4 +1,6 @@
-<%= form_tag(tables_path, :method => "get", id: "table-search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Find a Table" %>
+<%= form_tag(new_user_path, :method => "get", id: "table-search-form") do %>
+    <%= text_field_tag :guests, params[:guests], placeholder: "Number of Guests" %>
+    <%= text_field_tag :day, params[:day], class:"datepicker", placeholder: "Select Day" %>
+    <%= text_field_tag :time, params[:time], class:"timepicker", placeholder: "Select Time" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>

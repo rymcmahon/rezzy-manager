@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     @user = User.new
     @user.reservations.build
     @user.tables.build
-
+    @reserved_tables = Table.reserved_on(params[:guests], params[:day], params[:time])
+    @open_tables = Table.free_on(params[:guests], params[:day], params[:time])
+    @booked_table = Table.free_on(params[:guests], params[:day], params[:time])
     @guests = params[:guests]
     @day = params[:day]
     @time = params[:time]
