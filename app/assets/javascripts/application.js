@@ -30,12 +30,3 @@
     });
   } );
 
-  $( function() {
-    $('.timepicker').timepicker({
-      timeFormat: 'g:i:a',
-      minTime: '5:00pm',
-      maxTime: '8:00pm',
-      step: '15'
-    })
-  } );
-
