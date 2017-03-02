@@ -22,19 +22,11 @@
   $( function() {
     $( ".datepicker" ).datepicker({
       dateFormat: 'yy-mm-dd',
+      minDate: 0,
         beforeShowDay: function(date) {
           var day = date.getDay();
           return [(day != 1 && day != 0)];
         }
     });
-  } );
-
-  $( function() {
-    $('.timepicker').timepicker({
-      timeFormat: 'H:i:s',
-      minTime: '5:00pm',
-      maxTime: '8:00pm',
-      step: '15'
-    })
   } );
 
