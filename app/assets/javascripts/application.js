@@ -32,7 +32,7 @@
 
   $( function() {
     $('.timepicker').timepicker({
-      timeFormat: 'H:i:s',
+      timeFormat: 'g:i:a',
       minTime: '5:00pm',
       maxTime: '8:00pm',
       step: '15'
