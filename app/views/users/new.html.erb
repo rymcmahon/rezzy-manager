@@ -1,30 +1,37 @@
-<div class="container">
-  <%= form_for @user do |f| %>
-    <%= f.fields_for :reservations do |reservation_form| %>
-        <%= reservation_form.hidden_field 'table_id', :value => @booked_table %>
-        <%= reservation_form.hidden_field 'date', :value => @day %>
-        <%= reservation_form.hidden_field 'starts_at', :value => @time %>
+<% if @open_tables.nil? %>
+  <h3>Sorry, we do not have any reservations at that time.</h3>
+  <%= link_to "Search Again", new_table_path %>
+<% else %>
+  <div class="container">
+    <h3>We have a table available! Enter your information to reserve the table.</h3>
+    <%= form_for @user do |f| %>
+      <%= f.fields_for :reservations do |reservation_form| %>
+          <%= reservation_form.hidden_field 'table_id', :value => @booked_table %>
+          <%= reservation_form.hidden_field 'date', :value => @day %>
+          <%= reservation_form.hidden_field 'starts_at', :value => @time %>
+      <% end %>
+      <div class="row user-row">
+        <div class="col-md-3 form-group">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, class:"form-control" %><br />
+        </div>
+        <div class="col-md-3 form-group">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, class:"form-control" %><br />
+        </div>
+      </div>
+      <div class="row user-row">
+        <div class="col-md-3 form-group">
+          <%= f.label :email %><br />
+          <%= f.text_field :email, class:"form-control" %><br />
+        </div>
+        <div class="col-md-3 form-group">
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone, class:"form-control" %><br />
+        </div>
+      </div>
+        <%= submit_tag "Book Reservation", :name => nil, class:'btn btn-md btn-success' %>
     <% end %>
-    <div class="row user-row">
-      <div class="col-md-3 form-group">
-        <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, class:"form-control" %><br />
-      </div>
-      <div class="col-md-3 form-group">
-        <%= f.label :last_name %><br />
-        <%= f.text_field :last_name, class:"form-control" %><br />
-      </div>
-    </div>
-    <div class="row user-row">
-      <div class="col-md-3 form-group">
-        <%= f.label :email %><br />
-        <%= f.text_field :email, class:"form-control" %><br />
-      </div>
-      <div class="col-md-3 form-group">
-        <%= f.label :phone %><br />
-        <%= f.text_field :phone, class:"form-control" %><br />
-      </div>
-    </div>
-      <%= submit_tag "Book Reservation", :name => nil, class:'btn btn-md btn-success' %>
-  <% end %>
-</div>
+  </div>
+<% end %>
+

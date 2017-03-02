@@ -22,6 +22,7 @@
   $( function() {
     $( ".datepicker" ).datepicker({
       dateFormat: 'yy-mm-dd',
+      minDate: 0,
         beforeShowDay: function(date) {
           var day = date.getDay();
           return [(day != 1 && day != 0)];
