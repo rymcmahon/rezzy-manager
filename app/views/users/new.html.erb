@@ -9,6 +9,7 @@
           <%= reservation_form.hidden_field 'table_id', :value => @booked_table %>
           <%= reservation_form.hidden_field 'date', :value => @day %>
           <%= reservation_form.hidden_field 'starts_at', :value => @time %>
+          <%= reservation_form.hidden_field 'diners', :value => @guests %>
       <% end %>
       <div class="row user-row">
         <div class="col-md-3 form-group">
