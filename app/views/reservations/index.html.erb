@@ -1,10 +1,13 @@
-
+<div class="container">
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
 <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
 
-<%= link_to "Previous", start_date: date_range.first - 1.day %>
-<%= link_to "Next", start_date: date_range.last + 1.day %>
-<table class="table">
+<div class="calendar-buttons">
+  <%= link_to "Previous", start_date: date_range.first - 1.day %>
+  <%= I18n.t('date.month_names')[start_date.month] %> <%= start_date.year %>
+  <%= link_to "Next", start_date: date_range.last + 1.day %>
+</div>
+<table class="table table-bordered">
   <thead>
     <tr>
       <% date_range.slice(0, 7).each do |day| %>
@@ -16,11 +19,19 @@
     <% date_range.each_slice(7) do |week| %>
       <tr>
         <% week.each do |day| %>
-          <td>
-            <%= day %>
+          <td class="reservation-calendar-table-data">
+            <!-- <% table_ids = [] %>
+            <% @reservations.select{ |m| m.date == day }.each do |reservation| %>
+              <div>
+                <% table_ids << reservation.table_id %>
+                <% end %>
+                <%= table_ids.inject(0) {|sum, i|  sum + i } %>
+              </div> -->
+            <%= day.strftime('%e') %>
           </td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
