@@ -30,7 +30,7 @@
  }
 
  select#guests {
-  width: 75px;
+   width: 75px;
 }
 
 .reservation-calendar-table-data {
@@ -41,4 +41,10 @@
 .calendar-buttons {
   text-align: center;
   margin: 40px 0 15px 0;
+}
+
+.center {
+  text-align: center;
+  color: red;
+  font-size: 30px;
 }

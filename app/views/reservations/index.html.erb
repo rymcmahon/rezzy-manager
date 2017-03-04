@@ -20,14 +20,12 @@
       <tr>
         <% week.each do |day| %>
           <td class="reservation-calendar-table-data">
-            <!-- <% table_ids = [] %>
+            <%= day.strftime('%e') %><br>
+            <% table_ids = [] %>
             <% @reservations.select{ |m| m.date == day }.each do |reservation| %>
-              <div>
-                <% table_ids << reservation.table_id %>
-                <% end %>
-                <%= table_ids.inject(0) {|sum, i|  sum + i } %>
-              </div> -->
-            <%= day.strftime('%e') %>
+                <% table_ids << reservation.diners %>
+            <% end %>
+              <p class="center"><%= table_ids.inject(0) {|sum, i|  sum + i } %></p>
           </td>
         <% end %>
       </tr>
