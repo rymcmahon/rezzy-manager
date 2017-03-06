@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone,
-    reservations_attributes: [:id, :date, :starts_at, :ends_at, :table_id, :destroy],
+    reservations_attributes: [:id, :date, :starts_at, :ends_at, :table_id, :diners, :destroy],
     tables_attributes: [:id, :seating_capacity, :destroy])
   end
 
