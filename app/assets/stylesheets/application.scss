@@ -23,17 +23,26 @@
  @import url('https://fonts.googleapis.com/css?family=Courgette');
 
 
- .reservation-row {
-   margin-top: 40px;
- }
+.reservation-row {
+  margin-top: 40px;
+}
 
- .table-search {
-   margin: 50px auto;
-   width: 700px;
- }
+.table-search {
+  margin: 50px auto;
+  width: 700px;
+}
 
- select#guests {
-   width: 75px;
+select#time {
+  width: 100px;
+}
+
+select#guests {
+  width: 100px;
+}
+
+.find-table-btn {
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 .reservation-calendar-table-data {
@@ -59,7 +68,7 @@ p#brand-header {
 }
 
 .container-fluid {
- padding: 0;
+  padding: 0;
 }
 
 .navbar-default {
@@ -68,7 +77,6 @@ p#brand-header {
 }
 
 .navbar .nav > li > a{
-
   font-size: 14px;
 }
 
@@ -80,14 +88,36 @@ p#brand-header {
   font-family: 'Courgette', cursive;
 }
 
-// .ui-datepicker-title {
-//     color: #fff;
-// }
-//
-// .ui-datepicker .ui-datepicker-header {
-//   background: #93C54B !important;
-// }
-//
-// #ui-datepicker-div {
-//   font-family: 'Roboto', sans-serif;
-// }
+.ui-datepicker-title {
+  color: #fff;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background: #93C54B !important;
+}
+
+#ui-datepicker-div {
+  font-family: 'Roboto', sans-serif;
+}
+
+.find-table-container {
+  margin: 75px auto;
+  max-width: 700px;
+  background-color: #F8F5F0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.find-table-container h2 {
+  text-align: center;
+}
+
+#table-search-form {
+  text-align: center;
+  padding: 20px 50px 60px 50px;
+}
+
+#new_user {
+  padding: 39px;
+}
