@@ -20,13 +20,15 @@
         <tr>
           <% week.each do |day| %>
             <td class="reservation-calendar-table-data">
+              <%= link_to reservations_booked_path(:day => day) do %>
+              <div class="calendar-day">
               <%= day.strftime('%e') %><br>
               <% table_ids = [] %>
               <% @reservations.select{ |m| m.date == day }.each do |reservation| %>
                   <% table_ids << reservation.diners %>
               <% end %>
-              <%= link_to reservations_booked_path(:day => day) do %>
                 <p class="center"><%= table_ids.inject(0) {|sum, i|  sum + i } %></p>
+              </div>
               <% end %>
             </td>
           <% end %>

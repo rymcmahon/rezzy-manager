@@ -1,7 +1,12 @@
 <div class="container">
   <% if @open_tables.nil? %>
-    <h3>Sorry, we do not have any reservations at that time.</h3>
-    <%= link_to "Search Again", new_table_path %>
+    <div class="alert alert-dismissible alert-danger no-table-alert">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <h4>Sorry, we do not have any reservations available at that time. </h4> <h4>Try another time or day.</h4>
+    </div>
+    <div class="search-again-container">
+      <%= link_to "Search Again", new_table_path, class:'btn btn-lg btn-primary btn-search-again' %>
+    </div>
   <% else %>
     <div class="find-table-container">
       <h2>We have a table available!<br />
