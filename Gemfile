@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-ui-rails'
 gem 'jquery-timepicker-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootswatch-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

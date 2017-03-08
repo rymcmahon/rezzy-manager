@@ -1,7 +1,8 @@
-<div class="container table-search">
+<div class="container table-search find-table-container">
+  <h2>Make a Reservation</h2>
   <%= form_tag(new_user_path, :method => "get", id: "table-search-form", class:"form-inline") do %>
     <div class="form-group">
-      <%= select_tag :guests, options_for_select(["1", "2", "3", "4", "5", "6"], params[:guests]), class:"form-control", placeholder: "Number of Guests" %>
+      <%= select_tag :guests, options_for_select([["1 person", "1"], ["2 people", "2"], ["3 people", "3"], ["4 people", "4"], ["5 people", "5"], ["6 people", "6"]], params[:guests]), class:"form-control", placeholder: "Number of Guests" %>
     </div>
     <div class="form-group">
       <%= text_field_tag :day, params[:day], class:"datepicker form-control", placeholder: "Select Day" %>
@@ -9,7 +10,7 @@
     <div class="form-group">
       <%= select_tag :time, options_for_select([["5:00 pm", "17:00:00"], ["5:15 pm", "17:15:00"], ["5:30 pm", "17:30:00"], ["5:45 pm", "17:45:00"], ["6:00 pm", "18:00:00"], ["6:15 pm", "18:15:00"], ["6:30 pm", "18:30:00"], ["6:45 pm", "18:45:00"], ["7:00 pm", "19:00:00"], ["7:15 pm", "19:15:00"], ["7:30 pm", "19:30:00"], ["7:45 pm", "19:45:00"], ["8:00 pm", "20:00:00"]], params[:time]), class:"form-control", placeholder: "Select Time"  %>
     </div>
-      <%= submit_tag "Find Table", :name => nil, class:"btn btn-md btn-success" %>
+      <%= submit_tag "Find a Table", :name => nil, class:"btn btn-md btn-success find-table-btn" %>
   <% end %>
 </div>
 

@@ -19,9 +19,11 @@
 //= require bootstrap-sprockets
 
 
-  $( function() {
+  $( document ).on('turbolinks:load', function() {
     $( ".datepicker" ).datepicker({
-      dateFormat: 'yy-mm-dd',
+      dateFormat: 'D M d, yy',
+      altFormat: 'yy-mm-dd',
+      altField: '#db-date',
       minDate: 0,
         beforeShowDay: function(date) {
           var day = date.getDay();
