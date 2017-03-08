@@ -155,3 +155,22 @@ p#brand-header {
   margin: 40px auto;
   text-align: center;
 }
+
+.devise-sign-in-container {
+  margin: 75px auto;
+  max-width: 500px;
+  background-color: #F8F5F0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.devise-sign-in-container h2 {
+  text-align: center;
+}
+
+.devise-sign-in-container input#admin_email, input#admin_password  {
+  width: 470px;
+  padding-left: 10px;
+  font-size: 16px;
+}
