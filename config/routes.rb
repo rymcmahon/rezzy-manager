@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :tables
   get 'reservations' => 'reservations#index'
   get 'reservations/booked' => 'reservations#booked'
+  get 'users/:id' => 'users#show'
 end
