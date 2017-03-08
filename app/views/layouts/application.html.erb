@@ -28,6 +28,18 @@
             <li class="nav-links"><a href="#">Contact</a></li>
             <li class="nav-links"><a href="#">About</a></li>
             <li class="nav-links"><a href="/tables/new">Reservations</a></li>
+            <% if admin_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/menus/">View Menus</a></li>
+                  <li><a href="/menus/new">Create Menu</a></li>
+                  <li><%= link_to('Log Out', destroy_admin_session_path, :method => :delete) %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Sign In", new_admin_session_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
