@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_reservation = @user.reservations.find_by(:user_id => @user.id)
   end
 
   def new
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.reservation_email(@user).deliver_now
       redirect_to @user
     else
       render 'new'

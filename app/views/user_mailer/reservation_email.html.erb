@@ -4,13 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @user.name %></h1>
+    <h1>Hi, <%= @user.first_name %></h1>
     <p>
       Thank you for choosing to dine with us!
     </p>
     <p>
-      Your reservation for a party of <%= @user %>.
+      Your reservation for a party of <%= @user_reservation.diners %> is on <%= @user_reservation.date %> at <%= @user_reservation.starts_at %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>We look forward to seeing you!</p>
+    <p>Catanzaro Ristorante</p>
   </body>
 </html>

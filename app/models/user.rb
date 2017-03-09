@@ -6,10 +6,6 @@ class User < ApplicationRecord
 
   after_save :update_ends_at
 
-  def self.identification
-     where('reservations.user_id =?', id)
-  end
-
   private
     def update_ends_at
       self.reservations.update(ends_at: self.reservations.last.starts_at.advance(hours: 1))
