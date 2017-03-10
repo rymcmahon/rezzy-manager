@@ -34,6 +34,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="/menus/">View Menus</a></li>
                   <li><a href="/menus/new">Create Menu</a></li>
+                  <li><%= link_to 'View Reservations', reservations_path %></li>
                   <li><%= link_to('Log Out', destroy_admin_session_path, :method => :delete) %></li>
                 </ul>
               </li>
