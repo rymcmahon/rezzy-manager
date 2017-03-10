@@ -4,7 +4,7 @@
 
   <div class="calendar-buttons">
     <%= link_to "Previous", start_date: date_range.first - 1.day %>
-    <%= I18n.t('date.month_names')[start_date.month] %> <%= start_date.year %>
+    <h3 class="calendar-month"><%= I18n.t('date.month_names')[start_date.month] %> <%= start_date.year %></h3>
     <%= link_to "Next", start_date: date_range.last + 1.day %>
   </div>
   <table class="table table-bordered">
