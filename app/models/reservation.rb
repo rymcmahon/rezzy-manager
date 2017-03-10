@@ -5,6 +5,7 @@ class Reservation < ApplicationRecord
   scope :number_of_guests, -> (guests) { joins(:table).where('tables.seating_capacity >= ?', guests)}
 
   def self.on(day, time)
-    where('date = ? AND starts_at <= ? AND ends_at > ?', day, time, time)
+    requested_start = (time.to_time + 45.minutes).strftime('%T')
+    where('date = ? AND starts_at <= ? AND ends_at > ?', day, requested_start, time)
   end
 end
