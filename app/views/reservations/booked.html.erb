@@ -9,10 +9,11 @@
         <th>Guests</th>
         <th>Table</th>
         <th>Time</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-      <% @reservations.each do |reservation| %>
+      <% @reservations.order(:starts_at).each do |reservation| %>
         <tr>
           <td><%= "#{reservation.user.first_name} #{reservation.user.last_name}" %></td>
           <td><%= reservation.user.phone %></td>
@@ -20,6 +21,8 @@
           <td><%= reservation.diners %></td>
           <td><%= reservation.table_id %></td>
           <td><%= reservation.starts_at.strftime('%l:%M') %></td>
+          <td><%= link_to 'delete', {:action => :destroy, :controller => 'users', :id => reservation.user.id } %>
+          </td>
         </tr>
       <% end %>
     </tbody>
