@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :tables
   get 'reservations' => 'reservations#index'
   get 'reservations/booked' => 'reservations#booked'
+  delete 'reservations/:id' =>'reservations#destroy'
 end
