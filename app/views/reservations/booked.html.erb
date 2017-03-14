@@ -9,6 +9,7 @@
         <th>Guests</th>
         <th>Table</th>
         <th>Time</th>
+        <th>Arrived?</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
           <td><%= reservation.diners %></td>
           <td><%= reservation.table_id %></td>
           <td><%= reservation.starts_at.strftime('%l:%M') %></td>
+          <td><%= check_box_tag reservation.arrived %></td>
           <td><%= link_to "#{reservation.id}", method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
