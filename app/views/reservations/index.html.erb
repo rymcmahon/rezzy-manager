@@ -15,7 +15,7 @@
         <% end %>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="calendar-table-body">
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>

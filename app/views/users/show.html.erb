@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron thank-you-message">
     <h2>Thank you for choosing to dine with us, <%= @user.first_name %>!</h2>
-    <p>We sent a confirmation email to <strong><%= @user.email %></strong>  and we will see you on <strong><%= @user_reservation.date.strftime('%A %B %d, %Y') %> at <%= @user.reservations.last.starts_at.strftime('%l:%M%P') %></strong> .</p>
+    <p>We sent a confirmation email to <strong><%= @user.email %></strong>  and we will see you on <strong><%= @user_reservation.date.strftime('%A %B %d, %Y') %> at <%= @user.reservations.last.starts_at.strftime('%l:%M%P') %></strong>.</p>
   </div>
 </div>
 

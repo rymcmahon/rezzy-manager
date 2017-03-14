@@ -21,6 +21,7 @@
  @import "bootstrap";
  @import "bootswatch/sandstone/bootswatch";
  @import url('https://fonts.googleapis.com/css?family=Courgette');
+ @import "font-awesome";
 
 
 .reservation-row {
@@ -55,7 +56,7 @@ select#guests {
   height: 100%;
 }
 
-td:hover {
+#calendar-table-body td:hover {
   background-color: #F8F5F0;
 }
 
@@ -132,7 +133,7 @@ p#brand-header {
 }
 
 #new_user {
-  padding: 39px;
+  padding: 20px;
 }
 
 .search-again-container {
@@ -179,4 +180,14 @@ p#brand-header {
   display: inline;
   margin: 0 19px;
   font-weight: 700;
+}
+
+.center-header {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.fa-trash {
+  font-size: 20px;
 }
