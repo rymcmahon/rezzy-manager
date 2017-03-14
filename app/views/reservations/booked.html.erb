@@ -21,7 +21,9 @@
           <td><%= reservation.diners %></td>
           <td><%= reservation.table_id %></td>
           <td><%= reservation.starts_at.strftime('%l:%M') %></td>
-          <td><%= link_to 'Delete', "#{reservation.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <td><%= link_to "#{reservation.id}", method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
           </td>
         </tr>
       <% end %>
