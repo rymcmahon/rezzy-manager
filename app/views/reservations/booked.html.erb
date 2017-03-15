@@ -22,7 +22,14 @@
           <td><%= reservation.diners %></td>
           <td><%= reservation.table_id %></td>
           <td><%= reservation.starts_at.strftime('%l:%M') %></td>
-          <td><%= check_box_tag reservation.arrived %></td>
+          <td><%= check_box_tag 'arrived', reservation.id, reservation.arrived,
+                data: {
+                  remote: true,
+                  url: url_for( action: :update, id: reservation.id, arrived: reservation.arrived),
+                  method: "PUT"
+                }
+              %>
+          </td>
           <td><%= link_to "#{reservation.id}", method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>

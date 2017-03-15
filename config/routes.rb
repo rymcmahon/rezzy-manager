@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root to: 'tables#new'
   resources :users
   resources :tables
-  get 'reservations' => 'reservations#index'
+  # get 'reservations' => 'reservations#index'
   get 'reservations/booked' => 'reservations#booked'
-  delete 'reservations/:id' =>'reservations#destroy'
+  # delete 'reservations/:id' =>'reservations#destroy'
+  # get '/reservations/:id/edit' => 'reservations#edit'
+  # patch '/reservations/:id' => 'reservations#update'
+  resources :reservations
 end
