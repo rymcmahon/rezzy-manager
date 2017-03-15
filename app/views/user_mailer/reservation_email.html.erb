@@ -4,14 +4,33 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @user.first_name %></h1>
-    <p>
-      Thank you for choosing to dine with us!
-    </p>
-    <p>
-      Your reservation for a party of <%= @user_reservation.diners %> is on <%= @user_reservation.date %> at <%= @user_reservation.starts_at %>.
-    </p>
-    <p>We look forward to seeing you!</p>
-    <p>Catanzaro Ristorante</p>
+    <table style="max-width:600px;font-family:Arial;margin:0 auto;border-collapse:collapse;" cellpadding="15">
+      <thead>
+        <tr>
+          <th style="background-color:#3E3F3A;color:#fff;height:50px;font-size:20px;font-family:Cursive;">Catanzaro Ristorante</th>
+        </tr>
+      </thead>
+      <tbody style="background-color:#F9F9F9;">
+        <tr>
+          <td>Hi <%= @user.first_name %>,</td>
+        </tr>
+        <tr>
+          <td>Thank you for choosing to dine with us!</td>
+        </tr>
+        <tr>
+          <td>Your reservation for a party of <%= @user_reservation.diners %> is on <%= @user_reservation.date.strftime('%A %B %d, %Y') %> at <%= @user_reservation.starts_at.strftime('%l:%M%P') %>.
+          </td>
+        </tr>
+        <tr>
+          <td>We look forward to seeing you!</td>
+        </tr>
+        <tr>
+          <td>Sincerely,</td>
+        </tr>
+        <tr>
+          <td>Catanzaro Ristorante</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
